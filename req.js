@@ -15,6 +15,7 @@ const dom = "";
 const options = {
   url: "https://ticketing.liverpoolfc.com/usercontent/splash.html",
   method: "GET",
+  timeout: 300,
   headers: {
     "Proxy-Authorization": auth,
     accept: "application/json, */*; q=0.01",
