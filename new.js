@@ -8,6 +8,7 @@ const apicall = (port) => {
   const testOptions = {
     url: "https://ipinfo.io/json",
     method: "GET",
+    timeout:200,
     headers: {
       "Proxy-Authorization": auth,
       accept: "application/json",
@@ -17,6 +18,7 @@ const apicall = (port) => {
   const options = {
     url: "https://ticketing.liverpoolfc.com/usercontent/splash.html",
     method: "GET",
+    timeout:350,
     headers: {
       "Proxy-Authorization": auth,
       accept: "application/json, */*; q=0.01",
@@ -43,17 +45,20 @@ const apicall = (port) => {
     },
   };
 
-  proxyRequest(options, function (error, response, body) {
+  proxyRequest(testOptions, function (error, response, body) {
     if (error) {
-      console.log(error);
+      //console.log(error);
     } else {
-      console.log(response.statusCode);
+      //console.log(response.statusCode);
       console.log(port);
       //   console.log(body);
+      fs.appendFile("ports/200pingport.txt", `${port} \n`, (err) => {
+        if (err) console.log(err);
+      });
     }
   });
 };
 
-for (let i = 24000; i < 25001; i++) {
+for (let i = 40001; i < 49001; i++) {
   apicall(i);
 }
