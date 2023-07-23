@@ -1,5 +1,5 @@
 const request = require("request");
-const proxy = "http://isp.smartproxy.com:21568";
+const proxy = "http://isp.smartproxy.com:21577";
 const auth =
   "Basic " + Buffer.from("sp32fhzm9w:kqJmvPi5xVp1iTsk59").toString("base64");
 const proxyRequest = request.defaults({ proxy: proxy });
@@ -11,11 +11,10 @@ const testOptions = {
     accept: "application/json",
   },
 };
-const dom =
-  "25yoNdifZFvh1dQQox3xjDh00kA54m7vR4JNlNHiZEXZFljixmjY_7q4m~IR4djR1lWioadZ6wdQh6w9ZezXTTiaxsWGzSR29qzR0GdIdAK8K0xxx3~gABX4TkulA8M1";
+const dom = "";
 const options = {
-  url: "https://ticketing.liverpoolfc.com/handlers/api.ashx/0.1/TicketingController.SetEventTickets",
-  method: "POST",
+  url: "https://ticketing.liverpoolfc.com/usercontent/splash.html",
+  method: "GET",
   headers: {
     "Proxy-Authorization": auth,
     accept: "application/json, */*; q=0.01",
