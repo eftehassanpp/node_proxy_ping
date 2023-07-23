@@ -1,4 +1,5 @@
 const request = require("request");
+const fs = require("fs");
 const apicall = (port) => {
   const proxy = `http://isp.smartproxy.com:${port}`;
   const auth =
@@ -19,6 +20,9 @@ const apicall = (port) => {
       //   console.log(response.statusCode);
       //   console.log(body);
       console.log(port);
+      fs.appendFile("ports/ports.txt", `${port} \n`, (err) => {
+        if (err) console.log(err);
+      });
     }
   });
 };
